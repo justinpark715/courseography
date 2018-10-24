@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import { CoursePanel } from './course_panel.js.jsx';
 import { SearchPanel } from './search_panel.js.jsx';
@@ -7,27 +6,67 @@ import { SearchPanel } from './search_panel.js.jsx';
 export class SidePanel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedLectures: [],
-      selectedCourses: []
-    };
+    // From SearchPanel
+    this.state = { value: ''};
+
+    // From Grid
+    this.selectCourse = this.props.selectCourse.bind(this);
+    this.clearCourses = this.props.clearCourses.bind(this);
+    this.removeCourse = this.props.removeCourse.bind(this);
+    this.addSelectedLecture = this.props.addSelectedLecture.bind(this);
+    this.removeSelectedLecture = this.props.removeSelectedLecture.bind(this);
+
+    // Moved up from SearchPanel
+    this.handleInput = this.handleInput.bind(this);
+
+    // From CoursePanel
+    this.clearAllCourses = this.clearAllCourses.bind(this);
+  }
+
+  // From SearchPanel
+  handleInput(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  // From CoursePanel
+  clearAllCourses() {
+    if (window.confirm("Clear all selected courses?")) {
+      this.clearCourses();
+    }
   }
 
   render() {
     return (
-      <div>
+      <div className="col-sm-4 col-xs-6">
+        <button id="clear-all" key="clear-all-grid" onClick={this.clearAllCourses}>
+          Clear All
+        </button>
+
+        <form onSubmit={() => false} >
+          <input
+            id="course-filter"
+            className="form-control"
+            placeholder="Enter a course!"
+            autoComplete="off"
+            type="text"
+            value={this.state.value}
+            onChange={this.handleInput}
+          />
+        </form>
         <CoursePanel
-          selectedCourses={this.state.selectedCourses}
-          selectedLectures={this.state.selectedLectures}
-          removeCourse={this.removeSelectedCourse}
-          clearCourses={this.clearSelectedCourses}
+          selectedCourses={this.props.selectedCourses}
+          selectedLectures={this.props.selectedLectures}
+          removeCourse={this.removeCourse}
+          clearCourses={this.clearCourses}
           addSelectedLecture={this.addSelectedLecture}
           removeSelectedLecture={this.removeSelectedLecture}
         />
         <SearchPanel
-          selectedCourses={this.state.selectedCourses}
-          selectCourse={this.addSelectedCourse}
-          removeCourse={this.removeSelectedCourse}
+          value={this.state.value}
+          selected={this.state.selected}
+          selectedCourses={this.props.selectedCourses}
+          selectCourse={this.selectCourse}
+          removeCourse={this.removeCourse}
         />
       </div>
     );

@@ -7,35 +7,15 @@ import React from 'react';
  export class SearchPanel extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
-    // This binding is necessary to make `this` work in the callback
-    this.handleInput = this.handleInput.bind(this);
-  }
-
-  handleInput(event) {
-    this.setState({ value: event.target.value });
   }
 
   render() {
     return (
       // This div is all for the textbox input
-      <div id="search-layout" className="col-md-2 col-xs-6">
-        <div id="filter-container">
-          <form onSubmit={() => false}>
-            <input
-              id="course-filter"
-              className="form-control"
-              placeholder="Enter a course!"
-              autoComplete="off"
-              type="text"
-              value={this.state.value}
-              onChange={this.handleInput}
-            />
-          </form>
-        </div>
+      <div id="search-layout" className="col-sm-6">
         <div id="search-container">
           <CourseList
-            courseFilter={this.state.value.toUpperCase()}
+            courseFilter={this.props.value.toUpperCase()}
             selectedCourses={this.props.selectedCourses}
             selectCourse={this.props.selectCourse}
             removeCourse={this.props.removeCourse}
