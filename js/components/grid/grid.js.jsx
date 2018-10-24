@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { CoursePanel } from './course_panel.js.jsx';
-import { SearchPanel } from './search_panel.js.jsx';
+import { SidePanel } from './side_panel.js.jsx';
 import { Row } from './calendar.js.jsx';
 
 /**
@@ -116,20 +115,16 @@ class Grid extends React.Component {
   render() {
     return (
       <div>
-        <CoursePanel
+        <SidePanel
           selectedCourses={this.state.selectedCourses}
           selectedLectures={this.state.selectedLectures}
           removeCourse={this.removeSelectedCourse}
           clearCourses={this.clearSelectedCourses}
           addSelectedLecture={this.addSelectedLecture}
           removeSelectedLecture={this.removeSelectedLecture}
+          selectCourse={this.addSelectedCourse}
         />
         <Row lectureSections={this.state.selectedLectures}/>
-        <SearchPanel
-          selectedCourses={this.state.selectedCourses}
-          selectCourse={this.addSelectedCourse}
-          removeCourse={this.removeSelectedCourse}
-        />
       </div>
     );
   }
