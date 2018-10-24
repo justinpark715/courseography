@@ -53,21 +53,25 @@ export class SidePanel extends React.Component {
             onChange={this.handleInput}
           />
         </form>
-        <CoursePanel
-          selectedCourses={this.props.selectedCourses}
-          selectedLectures={this.props.selectedLectures}
-          removeCourse={this.removeCourse}
-          clearCourses={this.clearCourses}
-          addSelectedLecture={this.addSelectedLecture}
-          removeSelectedLecture={this.removeSelectedLecture}
-        />
-        <SearchPanel
-          value={this.state.value}
-          selected={this.state.selected}
-          selectedCourses={this.props.selectedCourses}
-          selectCourse={this.selectCourse}
-          removeCourse={this.removeCourse}
-        />
+        <div>
+          <CoursePanel
+            selectedCourses={this.props.selectedCourses}
+            selectedLectures={this.props.selectedLectures}
+            removeCourse={this.removeCourse}
+            clearCourses={this.clearCourses}
+            addSelectedLecture={this.addSelectedLecture}
+            removeSelectedLecture={this.removeSelectedLecture}
+          />
+        </div>
+        <div>
+          <SearchPanel
+            value={this.state.value}
+            selected={this.state.selected}
+            selectedCourses={this.props.selectedCourses}
+            selectCourse={this.selectCourse}
+            removeCourse={this.removeCourse}
+          />
+        </div>
       </div>
     );
   }

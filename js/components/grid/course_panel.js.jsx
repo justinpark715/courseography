@@ -29,7 +29,7 @@ export class CoursePanel extends React.Component {
                         removeSelectedLecture={this.props.removeSelectedLecture}/>)
 
     return (
-      <div id="course-select-wrapper" className="col-sm-6">
+      <div id="course-select-wrapper">
         <ul className="trapScroll-enabled" id="course-select">
           {courses}
         </ul>
