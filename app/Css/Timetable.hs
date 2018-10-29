@@ -38,6 +38,7 @@ gridCSS = do
 searchCSS :: Css
 searchCSS = do
     "#search-layout" ? do
+        alignCenter
         backgroundColor purple8
         margin0
         padding0
@@ -48,12 +49,12 @@ searchCSS = do
         height (pct 10)
         form <? do
             background ((url "/static/res/ico/search.png", noRepeat), placed sideRight sideCenter)
-            margin (em 1) 0 0 0
+            margin0
             paddingRight (px 34)
     "#search-container" ? do
         alignCenter
         color white
-        height (pct 90)
+        height (pct 20)
         width100
         margin0
         padding (em 0.5) 0 (em 1) 0
@@ -185,7 +186,7 @@ courseSelectCSS = do
     "#course-select-wrapper" ? do
         margin0
         padding0
-        height100
+        height (pct 70)
         backgroundColor purple8
         color white
     "#course-select" ? do

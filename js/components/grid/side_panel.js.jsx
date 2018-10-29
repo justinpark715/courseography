@@ -37,22 +37,23 @@ export class SidePanel extends React.Component {
 
   render() {
     return (
-      <div className="col-sm-4 col-xs-6">
+      <div id="search-layout" className="col-sm-3 col-xs-6">
+        <div id="filter-container">
+          <form onSubmit={() => false} >
+            <input
+              id="course-filter"
+              className="form-control"
+              placeholder="Enter a course!"
+              autoComplete="off"
+              type="text"
+              value={this.state.value}
+              onChange={this.handleInput}
+            />
+          </form>
+        </div>
         <button id="clear-all" key="clear-all-grid" onClick={this.clearAllCourses}>
           Clear All
         </button>
-
-        <form onSubmit={() => false} >
-          <input
-            id="course-filter"
-            className="form-control"
-            placeholder="Enter a course!"
-            autoComplete="off"
-            type="text"
-            value={this.state.value}
-            onChange={this.handleInput}
-          />
-        </form>
         <div>
           <CoursePanel
             selectedCourses={this.props.selectedCourses}
