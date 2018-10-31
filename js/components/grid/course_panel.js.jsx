@@ -44,7 +44,7 @@ export class CoursePanel extends React.Component {
  * Also retrieves the course information. It holds list of F, S and Y lecture, tutorial
  * and practical sections for the course.
  */
-class Course extends React.Component {
+export class Course extends React.Component {
   constructor(props) {
     super(props);
     this.modal = null;

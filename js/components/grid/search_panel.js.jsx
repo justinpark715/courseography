@@ -12,7 +12,7 @@ import React from 'react';
   render() {
     return (
       // This div is all for the textbox input
-        <div id="search-container">
+        <div id="search-container-empty">
           <CourseList
             courseFilter={this.props.value.toUpperCase()}
             selectedCourses={this.props.selectedCourses}
@@ -28,7 +28,7 @@ import React from 'react';
  * Filters the database of courses based on the user's input in the search box and
  * generates a list of courses with course codes containing the user input in the search box.
  */
-class CourseList extends React.Component {
+export class CourseList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
