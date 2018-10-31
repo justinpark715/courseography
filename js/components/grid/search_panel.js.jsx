@@ -12,7 +12,8 @@ import React from 'react';
   render() {
     return (
       // This div is all for the textbox input
-        <div id="search-container-empty">
+      <div id="search-layout">
+        <div id="search-container">
           <CourseList
             courseFilter={this.props.value.toUpperCase()}
             selectedCourses={this.props.selectedCourses}
@@ -20,6 +21,7 @@ import React from 'react';
             removeCourse={this.props.removeCourse}
           />
         </div>
+      </div>
     );
   }
 }
