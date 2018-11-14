@@ -54,10 +54,11 @@ searchCSS = do
     "#search-container" ? do
         alignCenter
         color white
-        height (pct 25)
+        height auto
+        maxHeight (pct 25)
         width100
         margin0
-        padding 0 0 (em 9) 0
+        padding 0 0 (px 10) 0
         overflowY auto
     "#search-container-empty" ? do
         alignCenter
@@ -69,7 +70,7 @@ searchCSS = do
     "#search-list" ? do
         margin0
         padding nil nil nil nil
-        height100
+        height auto
         width100
         ul <? do
             margin0
@@ -193,7 +194,8 @@ courseSelectCSS = do
     "#course-select-wrapper" ? do
         margin0
         padding0
-        height (pct 70)
+        height auto
+        minHeight (pct 70)
         backgroundColor purple8
         color white
     "#course-select-wrapper-full" ? do

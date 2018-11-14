@@ -37,8 +37,8 @@ export class SidePanel extends React.Component {
 
   render() {
     //Set correct id tags for search container and course select wrapper
-    let search_container_id = (this.state.value != "") ? "search-container" : "search-container-empty"
-    let course_select_wrapper_id = (this.state.value != "") ? "course-select-wrapper" : "course-select-wrapper-full"
+    let search_container_id = (this.state.value != "") ? "search-container" : "search-container-empty";
+    let course_select_wrapper_id = (this.state.value != "") ? "course-select-wrapper" : "course-select-wrapper-full";
 
     const courses = this.props.selectedCourses.map(
       course => <Course key={course}
